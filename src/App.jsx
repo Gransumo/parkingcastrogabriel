@@ -11,7 +11,7 @@ import Time from './time';
 const getProfits = async () => {
     return (
         // Iniciar el fetch
-        await fetch('http://192.168.1.76:3001/profits', {
+        await fetch('http://208.67.222.222:3001/profits', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ const getProfits = async () => {
 
 // Funcion que enciende y apaga el parking
 const switchParkingState = async (state) => {
-    await fetch(`http://192.168.1.76:3001/${state}`, {
+    await fetch(`http://208.67.222.222:3001/${state}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ const App = () => {
     useEffect(() => {
         try {
             // Se crea objeto WebSocketClient pasandole la direccion del servidor y la funcion a ejecutar cuando reciba un mensaje
-            const wsClient = new WebSocketClient('ws://192.168.1.76:3001', setDatosPlazas);
+            const wsClient = new WebSocketClient('ws://208.67.222.222:3001', setDatosPlazas);
             // Se retorna una funcion de limpieza que se ejecutará cuando el componente se desmonte
             return () => {
                 wsClient.closeConnection();
